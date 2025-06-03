@@ -1,0 +1,45 @@
+/* styles.css */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base mobile styles - no transitions initially */
+@media (max-width: 767.98px) {
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        visibility: hidden;
+    }
+
+    /* Only apply transition when the menu is being toggled */
+    .menu.open,
+    .menu:not(.open) {
+        transition: visibility 0.3s;
+    }
+
+    .menu.open {
+        visibility: visible;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+}
